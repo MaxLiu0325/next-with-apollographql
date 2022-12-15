@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import classNames from "classnames/bind";
+import cn from "classnames";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
@@ -84,7 +84,7 @@ const Index = () => {
             />
             <button
               className="flex p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal-600"
-              onClick={addTodo}
+              onClick={() => addTodo()}
             >
               Add
             </button>
@@ -94,7 +94,7 @@ const Index = () => {
           {todos.map((todo) => (
             <div className="flex mb-4 items-center" key={todo.id}>
               <p
-                className={classNames(
+                className={cn(
                   "w-full text-grey-darkest",
                   todo.isDone && "line-through text-green-600"
                 )}
